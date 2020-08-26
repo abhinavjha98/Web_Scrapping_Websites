@@ -10,6 +10,7 @@ def index():
 	company_phone = ""
 	email=""
 	add=""
+	company_website=""
 	if request.method == "POST":
 		if request.form['submit']=="submit":
 			email = request.form['email']
@@ -24,7 +25,8 @@ def index():
 					add = str(data['Address 1'][ind]).split("||")
 					company_phone = data['Phone Number'][ind]
 					company_email = data['Email'][ind]
-	return render_template('index.html',company_name=company_name,add=add,email=email,company_phone=company_phone,company_email=company_email)
+					company_website = data['Website'][ind]
+	return render_template('index.html',company_name=company_name,add=add,email=email,company_website=company_website,company_phone=company_phone,company_email=company_email)
 
 if __name__ == '__main__':
 	app.run(debug=True)
